@@ -1,41 +1,34 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MVP._Default" %>
+﻿<%@ Page Async="true" Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MVP._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
     <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+        <div class="col-md-3">
+            <br /> <br />
+            <asp:Label ID="lblDescricao" runat="server" Text="Descrição"></asp:Label><br />
+            <asp:TextBox ID="tbDescricao" runat="server" TextMode="MultiLine" ></asp:TextBox>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+        <div class="col-md-3">
+            <br /> <br />
+            <asp:Label ID="lblDataEntrega" runat="server" Text="Data sugerida para entrega"></asp:Label>&nbsp;
+            <asp:Calendar ID="cldData" runat="server" OnSelectionChanged="cldData_SelectionChanged"></asp:Calendar>
+            <asp:Label ID="lblAlertData" runat="server" visible="false" ></asp:Label>&nbsp;
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+            <asp:Button ID="btnLimpar" runat="server" Visible="false" Text="Limpar Lista" OnClick="btnLimpar_Click" />
+            
+            <br /><br />
+
+            <asp:GridView ID="grvDados" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField HeaderText="Descrição" DataField="Descricao" />
+                    <asp:BoundField HeaderText="Data" DataField="Data" />
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 

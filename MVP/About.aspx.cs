@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MVP.Controllers;
+using System;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Data;
 
 namespace MVP
 {
@@ -11,7 +13,11 @@ namespace MVP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) {
 
+            }
         }
+        
+
     }
 }
